@@ -18,7 +18,7 @@ const errors = ref<AuthFieldErrors>({})
 const lastPayload = ref<AuthPayload>()
 
 // Demo only: a fake request that always fails. Sign-in shows a form-level
-// error (no field highlighted); sign-up shows an error on the email field.
+// error (email and password highlighted); sign-up shows an email field error.
 async function onSubmit(payload: AuthPayload) {
   lastPayload.value = payload
   error.value = undefined

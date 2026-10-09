@@ -13,8 +13,8 @@ const props = withDefaults(defineProps<{
   switchHref: string
   forgotPasswordHref?: string
   /**
-   * Error not tied to one field, e.g. "Incorrect email or password."
-   * Shown under the last field; no field is highlighted.
+   * Error about the credentials as a whole, e.g. "Incorrect email or password."
+   * Shown under the password field; highlights email and password.
    */
   error?: string
   /** Field errors: shown under that field, only that field is highlighted. */
@@ -87,12 +87,16 @@ function errorId(field: AuthField) {
   return `${uid}-${field}-error`
 }
 
+// A form-level error is about the credentials, so it marks email and password.
 function invalid(field: AuthField) {
-  return props.errors[field] ? true : undefined
+  return props.errors[field] || (props.error && field !== 'name') ? true : undefined
 }
 
 function describedBy(field: AuthField) {
-  return props.errors[field] ? errorId(field) : undefined
+  return [
+    props.errors[field] && errorId(field),
+    props.error && field === 'email' && ids.formError,
+  ].filter(Boolean).join(' ') || undefined
 }
 
 // The hint gives way to any error shown under the password field.
