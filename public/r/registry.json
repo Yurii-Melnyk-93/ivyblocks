@@ -8,12 +8,57 @@
       "type": "registry:block",
       "title": "Pricing 01",
       "description": "Plan list with monthly/yearly toggle, per-plan yearly savings and inherited features.",
-      "dependencies": ["@lucide/vue"],
-      "registryDependencies": ["badge", "button", "label", "switch"],
+      "dependencies": [
+        "@lucide/vue"
+      ],
+      "registryDependencies": [
+        "badge",
+        "button",
+        "label",
+        "switch"
+      ],
       "files": [
-        { "path": "app/components/blocks/pricing-01/Pricing01.vue", "type": "registry:component", "target": "components/blocks/pricing-01/Pricing01.vue" },
-        { "path": "app/components/blocks/pricing-01/types.ts", "type": "registry:component", "target": "components/blocks/pricing-01/types.ts" },
-        { "path": "app/components/blocks/pricing-01/index.ts", "type": "registry:component", "target": "components/blocks/pricing-01/index.ts" }
+        {
+          "path": "app/components/blocks/pricing-01/Pricing01.vue",
+          "type": "registry:component",
+          "target": "components/blocks/pricing-01/Pricing01.vue"
+        },
+        {
+          "path": "app/components/blocks/pricing-01/types.ts",
+          "type": "registry:component",
+          "target": "components/blocks/pricing-01/types.ts"
+        },
+        {
+          "path": "app/components/blocks/pricing-01/index.ts",
+          "type": "registry:component",
+          "target": "components/blocks/pricing-01/index.ts"
+        }
+      ]
+    },
+    {
+      "name": "hero-01",
+      "type": "registry:block",
+      "title": "Hero 01",
+      "description": "Split hero with announcement link, two actions and a media frame that runs off the right edge on desktop.",
+      "registryDependencies": [
+        "button"
+      ],
+      "files": [
+        {
+          "path": "app/components/blocks/hero-01/Hero01.vue",
+          "type": "registry:component",
+          "target": "components/blocks/hero-01/Hero01.vue"
+        },
+        {
+          "path": "app/components/blocks/hero-01/types.ts",
+          "type": "registry:component",
+          "target": "components/blocks/hero-01/types.ts"
+        },
+        {
+          "path": "app/components/blocks/hero-01/index.ts",
+          "type": "registry:component",
+          "target": "components/blocks/hero-01/index.ts"
+        }
       ]
     }
   ]
