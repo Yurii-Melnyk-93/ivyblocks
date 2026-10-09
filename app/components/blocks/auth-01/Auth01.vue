@@ -77,6 +77,11 @@ const ids = {
   error: `${uid}-error`,
 }
 
+const passwordDescribedBy = computed(() => [
+  isSignUp.value && !props.error && ids.passwordHint,
+  props.error && ids.error,
+].filter(Boolean).join(' ') || undefined)
+
 function onSubmit() {
   if (props.pending)
     return
@@ -122,7 +127,6 @@ function onSubmit() {
     <form
       class="grid gap-4"
       :class="!providers.length && 'mt-8'"
-      :aria-describedby="error ? ids.error : undefined"
       @submit.prevent="onSubmit"
     >
       <div v-if="isSignUp" class="grid gap-2">
@@ -147,6 +151,7 @@ function onSubmit() {
           inputmode="email"
           required
           :aria-invalid="error ? true : undefined"
+          :aria-describedby="error ? ids.error : undefined"
         />
       </div>
 
@@ -170,23 +175,17 @@ function onSubmit() {
           :minlength="isSignUp ? minPasswordLength : undefined"
           required
           :aria-invalid="error ? true : undefined"
-          :aria-describedby="isSignUp ? ids.passwordHint : undefined"
+          :aria-describedby="passwordDescribedBy"
         />
-        <p v-if="isSignUp" :id="ids.passwordHint" class="text-xs text-muted-foreground">
+        <p v-if="isSignUp && !error" :id="ids.passwordHint" class="text-xs text-muted-foreground">
           <slot name="password-hint" :min="minPasswordLength">
             At least {{ minPasswordLength }} characters.
           </slot>
         </p>
+        <p v-if="error" :id="ids.error" role="alert" class="text-sm text-destructive">
+          {{ error }}
+        </p>
       </div>
-
-      <p
-        v-if="error"
-        :id="ids.error"
-        role="alert"
-        class="rounded-md border border-destructive/30 bg-destructive/10 px-3 py-2 text-sm text-destructive"
-      >
-        {{ error }}
-      </p>
 
       <Button type="submit" class="mt-2 w-full" :disabled="pending" :aria-busy="pending">
         <LoaderCircle v-if="pending" class="animate-spin motion-reduce:animate-none" aria-hidden="true" />
