@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { AuthCopy, AuthMode, AuthPayload, AuthProvider } from './types'
+import type { AuthCopy, AuthField, AuthFieldErrors, AuthMode, AuthPayload, AuthProvider } from './types'
 import { LoaderCircle } from '@lucide/vue'
 import { computed, ref, useId } from 'vue'
 import { Button } from '@/components/ui/button'
@@ -12,8 +12,13 @@ const props = withDefaults(defineProps<{
   /** Link to the other mode (sign-up page from sign-in, and back). */
   switchHref: string
   forgotPasswordHref?: string
-  /** Form-level error, e.g. "Incorrect email or password." */
+  /**
+   * Error not tied to one field, e.g. "Incorrect email or password."
+   * Shown under the last field; no field is highlighted.
+   */
   error?: string
+  /** Field errors: shown under that field, only that field is highlighted. */
+  errors?: AuthFieldErrors
   pending?: boolean
   minPasswordLength?: number
   copy?: Partial<AuthCopy>
@@ -22,6 +27,7 @@ const props = withDefaults(defineProps<{
   providers: () => [],
   forgotPasswordHref: undefined,
   error: undefined,
+  errors: () => ({}),
   pending: false,
   minPasswordLength: 8,
   copy: () => ({}),
@@ -74,12 +80,28 @@ const ids = {
   email: `${uid}-email`,
   password: `${uid}-password`,
   passwordHint: `${uid}-password-hint`,
-  error: `${uid}-error`,
+  formError: `${uid}-form-error`,
 }
 
+function errorId(field: AuthField) {
+  return `${uid}-${field}-error`
+}
+
+function invalid(field: AuthField) {
+  return props.errors[field] ? true : undefined
+}
+
+function describedBy(field: AuthField) {
+  return props.errors[field] ? errorId(field) : undefined
+}
+
+// The hint gives way to any error shown under the password field.
+const showPasswordHint = computed(() => isSignUp.value && !props.errors.password && !props.error)
+
 const passwordDescribedBy = computed(() => [
-  isSignUp.value && !props.error && ids.passwordHint,
-  props.error && ids.error,
+  showPasswordHint.value && ids.passwordHint,
+  props.errors.password && errorId('password'),
+  props.error && ids.formError,
 ].filter(Boolean).join(' ') || undefined)
 
 function onSubmit() {
@@ -137,7 +159,12 @@ function onSubmit() {
           name="name"
           autocomplete="name"
           required
+          :aria-invalid="invalid('name')"
+          :aria-describedby="describedBy('name')"
         />
+        <p v-if="errors.name" :id="errorId('name')" role="alert" class="text-sm text-destructive">
+          {{ errors.name }}
+        </p>
       </div>
 
       <div class="grid gap-2">
@@ -150,9 +177,12 @@ function onSubmit() {
           autocomplete="email"
           inputmode="email"
           required
-          :aria-invalid="error ? true : undefined"
-          :aria-describedby="error ? ids.error : undefined"
+          :aria-invalid="invalid('email')"
+          :aria-describedby="describedBy('email')"
         />
+        <p v-if="errors.email" :id="errorId('email')" role="alert" class="text-sm text-destructive">
+          {{ errors.email }}
+        </p>
       </div>
 
       <div class="grid gap-2">
@@ -174,15 +204,18 @@ function onSubmit() {
           :autocomplete="isSignUp ? 'new-password' : 'current-password'"
           :minlength="isSignUp ? minPasswordLength : undefined"
           required
-          :aria-invalid="error ? true : undefined"
+          :aria-invalid="invalid('password')"
           :aria-describedby="passwordDescribedBy"
         />
-        <p v-if="isSignUp && !error" :id="ids.passwordHint" class="text-xs text-muted-foreground">
+        <p v-if="showPasswordHint" :id="ids.passwordHint" class="text-xs text-muted-foreground">
           <slot name="password-hint" :min="minPasswordLength">
             At least {{ minPasswordLength }} characters.
           </slot>
         </p>
-        <p v-if="error" :id="ids.error" role="alert" class="text-sm text-destructive">
+        <p v-if="errors.password" :id="errorId('password')" role="alert" class="text-sm text-destructive">
+          {{ errors.password }}
+        </p>
+        <p v-if="error" :id="ids.formError" role="alert" class="text-sm text-destructive">
           {{ error }}
         </p>
       </div>

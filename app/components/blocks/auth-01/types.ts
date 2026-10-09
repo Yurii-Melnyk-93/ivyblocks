@@ -33,3 +33,8 @@ export interface AuthCopy {
   switchPrompt: string
   switchLabel: string
 }
+
+export type AuthField = 'name' | 'email' | 'password'
+
+/** Per-field errors: only the fields listed here are highlighted. */
+export type AuthFieldErrors = Partial<Record<AuthField, string>>

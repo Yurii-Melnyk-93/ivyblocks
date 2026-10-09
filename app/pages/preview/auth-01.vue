@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { AuthMode, AuthPayload } from '@/components/blocks/auth-01'
+import type { AuthFieldErrors, AuthMode, AuthPayload } from '@/components/blocks/auth-01'
 import { Auth01 } from '@/components/blocks/auth-01'
 
 const route = useRoute()
@@ -14,18 +14,22 @@ const switchHref = computed(() => mode.value === 'sign-in' ? '?mode=sign-up' : '
 
 const pending = ref(false)
 const error = ref<string>()
+const errors = ref<AuthFieldErrors>({})
 const lastPayload = ref<AuthPayload>()
 
-// Demo only: fake a request that always fails, to show pending and error states.
+// Demo only: a fake request that always fails. Sign-in shows a form-level
+// error (no field highlighted); sign-up shows an error on the email field.
 async function onSubmit(payload: AuthPayload) {
   lastPayload.value = payload
   error.value = undefined
+  errors.value = {}
   pending.value = true
   await new Promise(resolve => setTimeout(resolve, 800))
   pending.value = false
-  error.value = payload.mode === 'sign-in'
-    ? 'Incorrect email or password.'
-    : 'An account with this email already exists.'
+  if (payload.mode === 'sign-in')
+    error.value = 'Incorrect email or password.'
+  else
+    errors.value = { email: 'An account with this email already exists.' }
 }
 </script>
 
@@ -42,6 +46,7 @@ async function onSubmit(payload: AuthPayload) {
       ]"
       :pending="pending"
       :error="error"
+      :errors="errors"
       @submit="onSubmit"
     />
     <pre v-if="lastPayload" data-testid="payload" class="sr-only">{{ JSON.stringify({ ...lastPayload, password: '***' }) }}</pre>
