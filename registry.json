@@ -1,0 +1,20 @@
+{
+  "$schema": "https://shadcn-vue.com/schema/registry.json",
+  "name": "vueblocks",
+  "homepage": "https://example.com",
+  "items": [
+    {
+      "name": "pricing-01",
+      "type": "registry:block",
+      "title": "Pricing 01",
+      "description": "Plan list with monthly/yearly toggle, per-plan yearly savings and inherited features.",
+      "dependencies": ["lucide-vue-next"],
+      "registryDependencies": ["badge", "button", "label", "switch"],
+      "files": [
+        { "path": "app/components/blocks/pricing-01/Pricing01.vue", "type": "registry:component", "target": "components/blocks/pricing-01/Pricing01.vue" },
+        { "path": "app/components/blocks/pricing-01/types.ts", "type": "registry:component", "target": "components/blocks/pricing-01/types.ts" },
+        { "path": "app/components/blocks/pricing-01/index.ts", "type": "registry:component", "target": "components/blocks/pricing-01/index.ts" }
+      ]
+    }
+  ]
+}
