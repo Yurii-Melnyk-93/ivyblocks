@@ -60,6 +60,37 @@
           "target": "components/blocks/hero-01/index.ts"
         }
       ]
+    },
+    {
+      "name": "auth-01",
+      "type": "registry:block",
+      "title": "Auth 01",
+      "description": "Sign-in and sign-up form in one component: typed submit payload, OAuth provider buttons, pending and error states.",
+      "dependencies": [
+        "@lucide/vue"
+      ],
+      "registryDependencies": [
+        "button",
+        "input",
+        "label"
+      ],
+      "files": [
+        {
+          "path": "app/components/blocks/auth-01/Auth01.vue",
+          "type": "registry:component",
+          "target": "components/blocks/auth-01/Auth01.vue"
+        },
+        {
+          "path": "app/components/blocks/auth-01/types.ts",
+          "type": "registry:component",
+          "target": "components/blocks/auth-01/types.ts"
+        },
+        {
+          "path": "app/components/blocks/auth-01/index.ts",
+          "type": "registry:component",
+          "target": "components/blocks/auth-01/index.ts"
+        }
+      ]
     }
   ]
 }
