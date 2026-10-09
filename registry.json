@@ -8,7 +8,7 @@
       "type": "registry:block",
       "title": "Pricing 01",
       "description": "Plan list with monthly/yearly toggle, per-plan yearly savings and inherited features.",
-      "dependencies": ["lucide-vue-next"],
+      "dependencies": ["@lucide/vue"],
       "registryDependencies": ["badge", "button", "label", "switch"],
       "files": [
         { "path": "app/components/blocks/pricing-01/Pricing01.vue", "type": "registry:component", "target": "components/blocks/pricing-01/Pricing01.vue" },

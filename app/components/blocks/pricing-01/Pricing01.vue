@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { BillingPeriod, PricingPlan } from './types'
-import { Check } from 'lucide-vue-next'
+import { Check } from '@lucide/vue'
 import { computed, useId } from 'vue'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
