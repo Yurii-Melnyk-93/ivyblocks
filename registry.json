@@ -20,18 +20,15 @@
       "files": [
         {
           "path": "app/components/blocks/pricing-01/Pricing01.vue",
-          "type": "registry:component",
-          "target": "components/blocks/pricing-01/Pricing01.vue"
+          "type": "registry:component"
         },
         {
           "path": "app/components/blocks/pricing-01/types.ts",
-          "type": "registry:component",
-          "target": "components/blocks/pricing-01/types.ts"
+          "type": "registry:component"
         },
         {
           "path": "app/components/blocks/pricing-01/index.ts",
-          "type": "registry:component",
-          "target": "components/blocks/pricing-01/index.ts"
+          "type": "registry:component"
         }
       ]
     },
@@ -46,18 +43,15 @@
       "files": [
         {
           "path": "app/components/blocks/hero-01/Hero01.vue",
-          "type": "registry:component",
-          "target": "components/blocks/hero-01/Hero01.vue"
+          "type": "registry:component"
         },
         {
           "path": "app/components/blocks/hero-01/types.ts",
-          "type": "registry:component",
-          "target": "components/blocks/hero-01/types.ts"
+          "type": "registry:component"
         },
         {
           "path": "app/components/blocks/hero-01/index.ts",
-          "type": "registry:component",
-          "target": "components/blocks/hero-01/index.ts"
+          "type": "registry:component"
         }
       ]
     },
@@ -77,18 +71,15 @@
       "files": [
         {
           "path": "app/components/blocks/auth-01/Auth01.vue",
-          "type": "registry:component",
-          "target": "components/blocks/auth-01/Auth01.vue"
+          "type": "registry:component"
         },
         {
           "path": "app/components/blocks/auth-01/types.ts",
-          "type": "registry:component",
-          "target": "components/blocks/auth-01/types.ts"
+          "type": "registry:component"
         },
         {
           "path": "app/components/blocks/auth-01/index.ts",
-          "type": "registry:component",
-          "target": "components/blocks/auth-01/index.ts"
+          "type": "registry:component"
         }
       ]
     },
@@ -109,18 +100,15 @@
       "files": [
         {
           "path": "app/components/blocks/settings-01/Settings01.vue",
-          "type": "registry:component",
-          "target": "components/blocks/settings-01/Settings01.vue"
+          "type": "registry:component"
         },
         {
           "path": "app/components/blocks/settings-01/types.ts",
-          "type": "registry:component",
-          "target": "components/blocks/settings-01/types.ts"
+          "type": "registry:component"
         },
         {
           "path": "app/components/blocks/settings-01/index.ts",
-          "type": "registry:component",
-          "target": "components/blocks/settings-01/index.ts"
+          "type": "registry:component"
         }
       ]
     },
@@ -138,23 +126,19 @@
       "files": [
         {
           "path": "app/components/blocks/dashboard-shell-01/DashboardShell01.vue",
-          "type": "registry:component",
-          "target": "components/blocks/dashboard-shell-01/DashboardShell01.vue"
+          "type": "registry:component"
         },
         {
           "path": "app/components/blocks/dashboard-shell-01/ShellNav.vue",
-          "type": "registry:component",
-          "target": "components/blocks/dashboard-shell-01/ShellNav.vue"
+          "type": "registry:component"
         },
         {
           "path": "app/components/blocks/dashboard-shell-01/types.ts",
-          "type": "registry:component",
-          "target": "components/blocks/dashboard-shell-01/types.ts"
+          "type": "registry:component"
         },
         {
           "path": "app/components/blocks/dashboard-shell-01/index.ts",
-          "type": "registry:component",
-          "target": "components/blocks/dashboard-shell-01/index.ts"
+          "type": "registry:component"
         }
       ]
     }
