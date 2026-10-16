@@ -91,6 +91,38 @@
           "target": "components/blocks/auth-01/index.ts"
         }
       ]
+    },
+    {
+      "name": "settings-01",
+      "type": "registry:block",
+      "title": "Settings 01",
+      "description": "Profile and notification settings with a draft that tracks unsaved changes, discard, per-field errors, and pending and saved states.",
+      "dependencies": [
+        "@lucide/vue"
+      ],
+      "registryDependencies": [
+        "button",
+        "input",
+        "label",
+        "switch"
+      ],
+      "files": [
+        {
+          "path": "app/components/blocks/settings-01/Settings01.vue",
+          "type": "registry:component",
+          "target": "components/blocks/settings-01/Settings01.vue"
+        },
+        {
+          "path": "app/components/blocks/settings-01/types.ts",
+          "type": "registry:component",
+          "target": "components/blocks/settings-01/types.ts"
+        },
+        {
+          "path": "app/components/blocks/settings-01/index.ts",
+          "type": "registry:component",
+          "target": "components/blocks/settings-01/index.ts"
+        }
+      ]
     }
   ]
 }
