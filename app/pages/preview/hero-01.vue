@@ -1,12 +1,7 @@
 <script setup lang="ts">
 import { Hero01 } from '@/components/blocks/hero-01'
 
-const route = useRoute()
-
-useHead({
-  title: 'hero-01',
-  htmlAttrs: { class: route.query.theme === 'dark' ? 'dark' : '' },
-})
+usePreviewPage('hero-01')
 </script>
 
 <template>

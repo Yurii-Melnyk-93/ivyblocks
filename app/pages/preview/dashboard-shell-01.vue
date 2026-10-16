@@ -4,12 +4,7 @@ import { FileText, LayoutDashboard, Plus, Settings, Users } from '@lucide/vue'
 import { DashboardShell01 } from '@/components/blocks/dashboard-shell-01'
 import { Button } from '@/components/ui/button'
 
-const route = useRoute()
-
-useHead({
-  title: 'dashboard-shell-01',
-  htmlAttrs: { class: route.query.theme === 'dark' ? 'dark' : '' },
-})
+usePreviewPage('dashboard-shell-01')
 
 const items: ShellNavItem[] = [
   { id: 'overview', label: 'Overview', href: '#overview', icon: LayoutDashboard },

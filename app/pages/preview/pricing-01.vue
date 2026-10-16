@@ -2,12 +2,7 @@
 import type { PricingPlan } from '@/components/blocks/pricing-01'
 import { Pricing01 } from '@/components/blocks/pricing-01'
 
-const route = useRoute()
-
-useHead({
-  title: 'pricing-01',
-  htmlAttrs: { class: route.query.theme === 'dark' ? 'dark' : '' },
-})
+usePreviewPage('pricing-01')
 
 const plans: PricingPlan[] = [
   {

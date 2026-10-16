@@ -1,0 +1,4 @@
+# Static site: every page is prerendered by `nuxt generate`, no server functions.
+[build]
+  command = "npm run generate"
+  publish = "dist"

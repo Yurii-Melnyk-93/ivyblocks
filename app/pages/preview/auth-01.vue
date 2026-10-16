@@ -2,12 +2,7 @@
 import type { AuthFieldErrors, AuthMode, AuthPayload } from '@/components/blocks/auth-01'
 import { Auth01 } from '@/components/blocks/auth-01'
 
-const route = useRoute()
-
-useHead({
-  title: 'auth-01',
-  htmlAttrs: { class: route.query.theme === 'dark' ? 'dark' : '' },
-})
+const route = usePreviewPage('auth-01')
 
 const mode = computed<AuthMode>(() => route.query.mode === 'sign-up' ? 'sign-up' : 'sign-in')
 const switchHref = computed(() => mode.value === 'sign-in' ? '?mode=sign-up' : '?mode=sign-in')

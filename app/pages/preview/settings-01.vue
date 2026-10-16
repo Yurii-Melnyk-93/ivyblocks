@@ -2,12 +2,7 @@
 import type { NotificationSetting, ProfileFieldErrors, ProfileValues, SettingsPayload } from '@/components/blocks/settings-01'
 import { Settings01 } from '@/components/blocks/settings-01'
 
-const route = useRoute()
-
-useHead({
-  title: 'settings-01',
-  htmlAttrs: { class: route.query.theme === 'dark' ? 'dark' : '' },
-})
+usePreviewPage('settings-01')
 
 const profile = ref<ProfileValues>({ name: 'Ann Lee', email: 'ann@example.com' })
 const notifications = ref<NotificationSetting[]>([
