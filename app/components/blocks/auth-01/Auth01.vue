@@ -138,7 +138,9 @@ function onSubmit() {
           :disabled="pending"
           @click="emit('provider', provider.id)"
         >
-          <slot name="provider-icon" :provider="provider" />
+          <slot name="provider-icon" :provider="provider">
+            <component :is="provider.icon" v-if="provider.icon" class="size-4" aria-hidden="true" />
+          </slot>
           {{ provider.label }}
         </Button>
       </div>

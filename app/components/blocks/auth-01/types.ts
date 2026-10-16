@@ -1,3 +1,5 @@
+import type { Component } from 'vue'
+
 export type AuthMode = 'sign-in' | 'sign-up'
 
 export interface SignInPayload {
@@ -18,6 +20,8 @@ export type AuthPayload = SignInPayload | SignUpPayload
 export interface AuthProvider {
   id: string
   label: string
+  /** Provider logo as a component, e.g. an SVG component from the provider's brand assets. */
+  icon?: Component
 }
 
 export interface AuthCopy {
