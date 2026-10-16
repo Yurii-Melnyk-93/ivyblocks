@@ -123,6 +123,40 @@
           "target": "components/blocks/settings-01/index.ts"
         }
       ]
+    },
+    {
+      "name": "dashboard-shell-01",
+      "type": "registry:block",
+      "title": "Dashboard Shell 01",
+      "description": "App layout: sticky sidebar navigation with user card, top bar with title and actions, and a native-dialog drawer on mobile.",
+      "dependencies": [
+        "@lucide/vue"
+      ],
+      "registryDependencies": [
+        "button"
+      ],
+      "files": [
+        {
+          "path": "app/components/blocks/dashboard-shell-01/DashboardShell01.vue",
+          "type": "registry:component",
+          "target": "components/blocks/dashboard-shell-01/DashboardShell01.vue"
+        },
+        {
+          "path": "app/components/blocks/dashboard-shell-01/ShellNav.vue",
+          "type": "registry:component",
+          "target": "components/blocks/dashboard-shell-01/ShellNav.vue"
+        },
+        {
+          "path": "app/components/blocks/dashboard-shell-01/types.ts",
+          "type": "registry:component",
+          "target": "components/blocks/dashboard-shell-01/types.ts"
+        },
+        {
+          "path": "app/components/blocks/dashboard-shell-01/index.ts",
+          "type": "registry:component",
+          "target": "components/blocks/dashboard-shell-01/index.ts"
+        }
+      ]
     }
   ]
 }
